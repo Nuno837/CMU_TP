@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">CMU_TP</string>
     <string name="title_activity_second">SecondActivity</string>
+    <string name="title_activity_sign_in">SignInActivity</string>
 </resources>
