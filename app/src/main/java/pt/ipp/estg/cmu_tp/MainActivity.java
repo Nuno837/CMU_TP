@@ -1,21 +1,33 @@
 package pt.ipp.estg.cmu_tp;
 
+import android.app.ProgressDialog;
+import android.arch.persistence.room.Room;
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.os.Handler;
+import android.support.v7.app.AppCompatActivity;
+import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.TextView;
+import android.widget.Toast;
+
+import pt.ipp.estg.cmu_tp.Database.UserDao;
+import pt.ipp.estg.cmu_tp.Database.UserDatabase;
+import pt.ipp.estg.cmu_tp.Models.User;
 
 public class MainActivity extends AppCompatActivity {
 
-    private EditText Name;
-    private EditText Password;
-    private TextView Info;
-    private Button Login;
-    private Button SignIn;
-    private int counter = 0;
+    private Button btSignIn;
+    private Button btSignUp;
+    private EditText edtEmail;
+    private EditText edtPassword;
+    private UserDatabase database;
+
+    private UserDao userDao;
+    private ProgressDialog progressDialog;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,43 +35,68 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        Name = findViewById(R.id.etName);
-        Password = findViewById(R.id.etPassword);
-        Info = findViewById(R.id.tvInfo);
-        Login = findViewById(R.id.loginButton);
-        SignIn = findViewById(R.id.signInButton);
+        progressDialog = new ProgressDialog(this);
+        progressDialog.setCancelable(false);
+        progressDialog.setMessage("Check User...");
+        progressDialog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
+        progressDialog.setProgress(0);
 
-        Info.setText("Nr of incorrect attempts: 0");
 
-        Login.setOnClickListener(new View.OnClickListener() {
+        database = Room.databaseBuilder(this, UserDatabase.class, "mi-database.db")
+                .allowMainThreadQueries()
+                .build();
+
+        userDao = database.getUserDao();
+
+
+        btSignIn = findViewById(R.id.btSignIn);
+        btSignUp = findViewById(R.id.btSignUp);
+
+        edtEmail = findViewById(R.id.emailinput);
+        edtPassword = findViewById(R.id.passwordinput);
+
+
+        btSignUp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                validate(Name.getText().toString(), Password.getText().toString());
+                startActivity(new Intent(MainActivity.this, SignUpActivity.class));
+            }
+        });
+        btSignIn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (!emptyValidation()) {
+                    progressDialog.show();
+                    new Handler().postDelayed(new Runnable() {
+                        @Override
+                        public void run() {
+                            User user = userDao.getUser(edtEmail.getText().toString(), edtPassword.getText().toString());
+                            if (user != null) {
+                                Intent i = new Intent(MainActivity.this, UserActivity.class);
+                                i.putExtra("User", user);
+                                startActivity(i);
+                                finish();
+                            } else {
+                                Toast.makeText(MainActivity.this, "Unregistered user, or incorrect", Toast.LENGTH_SHORT).show();
+                            }
+                            progressDialog.dismiss();
+                        }
+                    }, 1000);
+
+                } else {
+                    Toast.makeText(MainActivity.this, "Empty Fields", Toast.LENGTH_SHORT).show();
+                }
             }
         });
 
-        SignIn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, SignInActivity.class);
-                startActivity(intent);
-            }
-        });
+
     }
 
-    private void validate(String userName, String userPassword){
-        if ((userName.equals("Admin")) && (userPassword.equals("1234"))){
-
-            Intent intent = new Intent(MainActivity.this, SecondActivity.class);
-            startActivity(intent);
-        }else{
-            counter++;
-
-            Info.setText("Nr of incorrect attempts:" + String.valueOf(counter));
-
-            if(counter == 10){
-                Login.setEnabled(false);
-            }
+    private boolean emptyValidation() {
+        if (TextUtils.isEmpty(edtEmail.getText().toString()) || TextUtils.isEmpty(edtPassword.getText().toString())) {
+            return true;
+        } else {
+            return false;
         }
     }
 }

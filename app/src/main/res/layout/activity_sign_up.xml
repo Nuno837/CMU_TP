@@ -1,53 +1,50 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="MainActivity">
-
-    <ImageView
-        android:id="@+id/imageViewLog"
-        android:layout_width="209dp"
-        android:layout_height="133dp"
-        android:layout_centerHorizontal="true"
-        android:layout_marginStart="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginTop="32dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginRight="8dp"
-        android:layout_marginBottom="8dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.503"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.008"
-        tools:src="@drawable/cmu_logo" />
+    tools:context=".MainActivity">
 
     <RelativeLayout
-        android:id="@+id/relativeLayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
         <View
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:alpha="0.8" />
+            android:alpha="0.8"
+            />
 
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
-            android:layout_marginLeft="40dp"
-            android:layout_marginRight="40dp">
+            android:layout_marginStart="40dp"
+            android:layout_marginEnd="40dp">
 
             <EditText
-                android:id="@+id/emailinput"
+                android:id="@+id/nameinput"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:hint="Name"
+                android:inputType="textEmailAddress"
+                android:textSize="17sp" />
+            <EditText
+                android:id="@+id/lastnameinput"
+                android:layout_below="@id/nameinput"
+                android:layout_width="match_parent"
+                android:layout_marginTop="30dp"
+                android:layout_height="wrap_content"
+                android:hint="LastName"
+                android:inputType="textEmailAddress"
+                android:textSize="17sp" />
+            <EditText
+                android:id="@+id/emailinput"
+                android:layout_below="@id/lastnameinput"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30dp"
                 android:hint="Email"
-                android:imeOptions="actionNext"
                 android:inputType="textEmailAddress"
                 android:textSize="17sp" />
 
@@ -57,32 +54,37 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@id/emailinput"
                 android:layout_marginTop="30dp"
-                android:fontFamily="sans-serif-light"
                 android:hint="Password"
                 android:inputType="textPassword"
                 android:textSize="17sp" />
         </RelativeLayout>
 
+        <ImageView
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="20dp" />
+
         <Button
-            android:id="@+id/btSignIn"
+            android:id="@+id/btRegister"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_above="@id/btSignUp"
+            android:layout_above="@id/btCancel"
+            android:layout_marginBottom="10dp"
             android:layout_marginLeft="20dp"
             android:layout_marginRight="20dp"
-            android:layout_marginBottom="10dp"
-            android:text="Sign In"
+            android:text="Register"
             android:textColor="@color/colorPrimary" />
 
         <Button
-            android:id="@+id/btSignUp"
+            android:id="@+id/btCancel"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
+            android:layout_marginBottom="20dp"
             android:layout_marginLeft="20dp"
             android:layout_marginRight="20dp"
-            android:layout_marginBottom="20dp"
-            android:text="Sign Up" />
+            android:text="Cancel" />
     </RelativeLayout>
 
 </android.support.constraint.ConstraintLayout>
