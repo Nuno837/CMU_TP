@@ -33,7 +33,7 @@ public class UserActivity extends AppCompatActivity {
         tvUser = findViewById(R.id.tvUser);
 
         if (user != null) {
-            tvUser.setText("WELCOME "+user.getName() +" "+user.getLastName());
+            tvUser.setText("Bem-Vindo "+user.getName() +" "+user.getLastName());
 
         }
         button = findViewById(R.id.button);

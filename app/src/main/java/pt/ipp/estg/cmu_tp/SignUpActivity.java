@@ -131,7 +131,7 @@ public class SignUpActivity extends AppCompatActivity {
                 .setLargeIcon(BitmapFactory.decodeResource(this.getResources(),
                         R.mipmap.cmu_logo))
                 .setContentTitle("User: " + userName)
-                .setContentText("User: " + userName + " " + lastName + " Registado com sucesso!")
+                .setContentText("User: " + userName + " " + lastName + " registado com sucesso!")
                 .setPriority(NotificationCompat.PRIORITY_DEFAULT)
                 .setAutoCancel(true)
                 .setContentIntent(PendingIntent.getActivity(this, 0, new Intent(), 0));;

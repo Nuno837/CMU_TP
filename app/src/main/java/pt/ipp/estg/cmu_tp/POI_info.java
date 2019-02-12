@@ -69,7 +69,6 @@ public class POI_info extends AppCompatActivity {
                 ArrayList<POI> poi = new ArrayList<>();
                 poi = (ArrayList<POI>) response.body();
                 Log.d("TAG", "onReponse: Received information" + response.body().toString());
-                Toast.makeText(POI_info.this, "recebida", Toast.LENGTH_SHORT).show();
                 adapter_posto = new Adapter_Posto(POI_info.this, poi);
                 recyclerView_a.setAdapter(adapter_posto);
 
