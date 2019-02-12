@@ -42,6 +42,7 @@ public class SignUpActivity extends AppCompatActivity {
         progressDialog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
         progressDialog.setProgress(0);
 
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         edtName = findViewById(R.id.nameinput);
         edtLastName = findViewById(R.id.lastnameinput);

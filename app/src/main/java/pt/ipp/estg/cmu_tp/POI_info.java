@@ -40,6 +40,8 @@ public class POI_info extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_poi_info);
 
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
         myLocation();
 
         Map<String, String> data = new HashMap<>();

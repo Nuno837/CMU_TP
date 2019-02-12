@@ -16,8 +16,21 @@
         android:roundIcon="@mipmap/cmu_logo"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Detailed_Info"></activity>
-        <activity android:name=".POI_info" />
+        <activity android:name=".Detailed_Info"
+            android:label="@string/title_activity_detailed_info"
+            android:parentActivityName=".POI_info">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="pt.ipp.estg.cmu_tp.POI_info"/>
+        </activity>
+        <activity
+            android:name=".POI_info"
+            android:label="@string/title_activity_poi_info"
+            android:parentActivityName=".UserActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="pt.ipp.estg.cmu_tp.UserActivity"/>
+        </activity>
         <!--
              The API key for Google Maps-based APIs is defined as a string resource.
              (See the file "res/values/google_maps_api.xml").
@@ -26,10 +39,6 @@
              sign the APK for publishing.
              You can define the keys for the debug and release targets in src/debug/ and src/release/.
         -->
-        <meta-data
-            android:name="com.google.android.geo.API_KEY"
-            android:value="@string/google_maps_key" />
-
         <activity
             android:name=".MapsActivity"
             android:label="@string/title_activity_maps" />
@@ -45,7 +54,13 @@
             android:screenOrientation="portrait" />
         <activity
             android:name=".SignUpActivity"
-            android:screenOrientation="portrait" />
+            android:screenOrientation="portrait"
+            android:label="@string/title_activity_sign_in"
+            android:parentActivityName=".MainActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="pt.ipp.estg.cmu_tp.MainActivity"/>
+        </activity>
     </application>
 
 </manifest>
