@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">CMU_TP</string>
-    <string name="title_activity_second">SecondActivity</string>
-    <string name="title_activity_sign_in">SignInActivity</string>
-    <string name="title_activity_maps">Map</string>
-    <string name="title_activity_detailed_info">DetailedInfo</string>
+    <string name="title_activity_sign_in">Sign Up</string>
+    <string name="title_activity_maps">Google Map</string>
+    <string name="title_activity_poi_info">Postos de Carregamento</string>
+    <string name="title_activity_detailed_info">Detalhe do Posto</string>
 </resources>

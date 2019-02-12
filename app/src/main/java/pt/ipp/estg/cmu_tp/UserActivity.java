@@ -7,14 +7,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
-import java.util.List;
-
 import pt.ipp.estg.cmu_tp.Models.User;
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
-import retrofit2.Retrofit;
-import retrofit2.converter.gson.GsonConverterFactory;
 
 
 public class UserActivity extends AppCompatActivity {
@@ -33,7 +26,7 @@ public class UserActivity extends AppCompatActivity {
         tvUser = findViewById(R.id.tvUser);
 
         if (user != null) {
-            tvUser.setText("WELCOME "+user.getName() +" "+user.getLastName());
+            tvUser.setText("Welcome "+user.getName() +" "+user.getLastName());
 
         }
         button = findViewById(R.id.button);
