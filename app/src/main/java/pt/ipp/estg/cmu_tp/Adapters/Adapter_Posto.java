@@ -7,7 +7,6 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.TextView;
 
 import pt.ipp.estg.cmu_tp.Detailed_Info;
@@ -32,8 +31,8 @@ public class Adapter_Posto extends RecyclerView.Adapter<Adapter_Posto.ViewHolder
 
         Context context = viewGroup.getContext();
         LayoutInflater inflater = LayoutInflater.from(context);
-        View concertView = inflater.inflate(R.layout.info_poi, viewGroup, false);
-        ViewHolder viewHolder = new ViewHolder(concertView);
+        View POIView = inflater.inflate(R.layout.info_poi, viewGroup, false);
+        ViewHolder viewHolder = new ViewHolder(POIView);
         return viewHolder;
     }
 
@@ -71,8 +70,7 @@ public class Adapter_Posto extends RecyclerView.Adapter<Adapter_Posto.ViewHolder
 
     public class ViewHolder extends RecyclerView.ViewHolder {
 
-        public TextView nPoi , nLocal_a;
-        public Button btn1_a;
+        public TextView nPoi;
 
 
         public ViewHolder(@NonNull View itemView) {
