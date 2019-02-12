@@ -17,10 +17,6 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".Detailed_Info"></activity>
-        <activity
-            android:name=".DetailedInfo"
-            android:label="@string/title_activity_detailed_info"
-            android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".POI_info" />
         <!--
              The API key for Google Maps-based APIs is defined as a string resource.
