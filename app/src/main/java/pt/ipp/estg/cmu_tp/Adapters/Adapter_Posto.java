@@ -10,9 +10,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
 
-import pt.ipp.estg.cmu_tp.DetailedInfo;
 import pt.ipp.estg.cmu_tp.Detailed_Info;
-import pt.ipp.estg.cmu_tp.POI_info;
 import pt.ipp.estg.cmu_tp.R;
 import pt.ipp.estg.cmu_tp.POI;
 
@@ -52,7 +50,6 @@ public class Adapter_Posto extends RecyclerView.Adapter<Adapter_Posto.ViewHolder
             public void onClick(View v) {
                 Intent intent = new Intent(mContext , Detailed_Info.class);
                 POI poi= mListPoi.get(i);
-                int id =poi.getID();
                 String nome = poi.adressInfo.getTitle();
                 intent.putExtra("nome",nome);
                 String morada = poi.adressInfo.getAdressLine1();
