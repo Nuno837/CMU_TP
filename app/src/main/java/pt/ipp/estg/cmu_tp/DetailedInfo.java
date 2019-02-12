@@ -20,8 +20,6 @@ public class DetailedInfo extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detailed_info);
 
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-
         showNome = findViewById(R.id.showNome);
         showMorada = findViewById(R.id.showMorada);
         showCidade = findViewById(R.id.showCidade);

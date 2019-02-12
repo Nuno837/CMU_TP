@@ -16,7 +16,6 @@ public class Detailed_Info extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detailed__info);
 
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         showNome = findViewById(R.id.show_nome);
         showMorada = findViewById(R.id.show_morada);

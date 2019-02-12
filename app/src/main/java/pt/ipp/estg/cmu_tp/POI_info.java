@@ -1,7 +1,6 @@
 package pt.ipp.estg.cmu_tp;
-
-import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.os.Bundle;
 import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -30,8 +29,6 @@ public class POI_info extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_poi_info);
-
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         Map<String, String> data = new HashMap<>();
         data.put("output", "json");
