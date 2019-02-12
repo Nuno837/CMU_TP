@@ -1,4 +1,12 @@
 package pt.ipp.estg.cmu_tp;
+
+import android.Manifest;
+import android.content.Context;
+import android.content.pm.PackageManager;
+import android.location.Location;
+import android.location.LocationListener;
+import android.location.LocationManager;
+import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.DividerItemDecoration;
@@ -23,6 +31,8 @@ public class POI_info extends AppCompatActivity {
 
     RecyclerView recyclerView_a;
     Adapter_Posto adapter_posto;
+    Double latitude = 0.0;
+    Double longitude = 0.0;
 
 
     @Override
@@ -30,14 +40,15 @@ public class POI_info extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_poi_info);
 
+        myLocation();
+
         Map<String, String> data = new HashMap<>();
         data.put("output", "json");
         data.put("maxresults", "100");
         data.put("compact", "true");
         data.put("verbose", "false");
-        //a localização desta informação está estática
-        data.put("latitude", "41.3627437");
-        data.put("longitude", "-8.1955167");
+        data.put("latitude", Double.toString(latitude));
+        data.put("longitude", Double.toString(longitude));
 
         recyclerView_a = (RecyclerView) findViewById(R.id.POI_posto);
         recyclerView_a.setHasFixedSize(true);
@@ -71,5 +82,46 @@ public class POI_info extends AppCompatActivity {
     }
 
 
-}
 
+
+    private void atualizarPOI(Location location){
+        if (location != null) {
+            latitude = location.getLatitude();
+            longitude = location.getLongitude();
+        }
+    }
+
+    LocationListener locationListener = new LocationListener() {
+        @Override
+        public void onLocationChanged(Location location) {
+            atualizarPOI(location);
+        }
+
+        @Override
+        public void onStatusChanged(String provider, int status, Bundle extras) {
+
+        }
+
+        @Override
+        public void onProviderEnabled(String provider) {
+
+        }
+
+        @Override
+        public void onProviderDisabled(String provider) {
+
+        }
+    };
+
+    private void myLocation() {
+
+        if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+
+            return;
+        }
+        LocationManager locationManager = (LocationManager)getSystemService(Context.LOCATION_SERVICE);
+        Location location = locationManager.getLastKnownLocation(LocationManager.GPS_PROVIDER);
+        atualizarPOI(location);
+        locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER,15000,0,locationListener);
+    }
+}
