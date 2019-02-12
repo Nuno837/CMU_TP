@@ -21,6 +21,7 @@ public class UserActivity extends AppCompatActivity {
     private TextView tvUser;
 
     private Button button;
+    private Button button2;
     private User user;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,6 +47,16 @@ public class UserActivity extends AppCompatActivity {
             }
         });
 
+        button2 = findViewById(R.id.show_POI);
+
+        button2.setOnClickListener(new View.OnClickListener()
+
+        {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(UserActivity.this, POI_info.class));
+            }
+        });
     }
 
 }
