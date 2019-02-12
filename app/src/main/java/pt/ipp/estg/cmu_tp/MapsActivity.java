@@ -40,8 +40,6 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     private Marker marker;
     double lat = 0.0;
     double lng = 0.0;
-    double latitude = 0.0;
-    double longitude = 0.0;
 
 
     @Override
@@ -101,18 +99,10 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         }
     }
 
-    private void atualizarPOI(Location location){
-        if (location != null) {
-            latitude = location.getLatitude();
-            longitude = location.getLongitude();
-        }
-    }
-
     LocationListener locationListener = new LocationListener() {
         @Override
         public void onLocationChanged(Location location) {
             actualizarPosição(location);
-            atualizarPOI(location);
         }
 
         @Override
