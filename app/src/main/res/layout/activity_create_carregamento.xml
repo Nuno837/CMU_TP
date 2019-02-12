@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".HistoricoActivity">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:alpha="0.8"
+            />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="40dp"
+            android:layout_marginEnd="40dp">
+
+            <EditText
+                android:id="@+id/nomepostoinput"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Nome Posto"
+                android:inputType="textEmailAddress"
+                android:textSize="17sp" />
+
+            <EditText
+                android:id="@+id/moradainput"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/nomepostoinput"
+                android:layout_marginTop="30dp"
+                android:hint="Morada"
+                android:inputType="textEmailAddress"
+                android:textSize="17sp" />
+
+            <EditText
+                android:id="@+id/custoinput"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/moradainput"
+                android:layout_marginTop="30dp"
+                android:hint="Custo"
+                android:inputType="textEmailAddress"
+                android:textSize="17sp" />
+        </RelativeLayout>
+
+        <ImageView
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="20dp" />
+
+        <Button
+            android:id="@+id/btRegisterH"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_above="@id/btCancelH"
+            android:layout_marginBottom="10dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:text="Register"
+            android:textColor="@color/colorPrimary" />
+
+        <Button
+            android:id="@+id/btCancelH"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="20dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:text="Cancel" />
+    </RelativeLayout>
+
+</android.support.constraint.ConstraintLayout>

@@ -66,6 +66,24 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="pt.ipp.estg.cmu_tp.MainActivity"/>
         </activity>
+        <activity
+            android:name=".AddCarregamentoActivity"
+            android:screenOrientation="portrait"
+            android:label="@string/title_activity_add_carregamento"
+            android:parentActivityName=".HistoricoActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="pt.ipp.estg.cmu_tp.HistoricoActivity"/>
+        </activity>
+        <activity
+            android:name=".HistoricoActivity"
+            android:screenOrientation="portrait"
+            android:label="@string/title_activity_historico_carregamento"
+            android:parentActivityName=".UserActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="pt.ipp.estg.cmu_tp.UserActivity"/>
+        </activity>
     </application>
 
 </manifest>

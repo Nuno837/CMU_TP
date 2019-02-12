@@ -4,4 +4,6 @@
     <string name="title_activity_maps">Google Map</string>
     <string name="title_activity_poi_info">Postos de Carregamento</string>
     <string name="title_activity_detailed_info">Detalhe do Posto</string>
+    <string name="title_activity_add_carregamento">Novo Carregamento</string>
+    <string name="title_activity_historico_carregamento">Historico de Carregamentos</string>
 </resources>

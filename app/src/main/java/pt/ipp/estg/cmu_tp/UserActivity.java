@@ -22,6 +22,7 @@ public class UserActivity extends AppCompatActivity {
 
     private Button button;
     private Button button2;
+    private Button button3;
     private User user;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -55,6 +56,17 @@ public class UserActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(UserActivity.this, POI_info.class));
+            }
+        });
+
+        button3 = findViewById(R.id.btCarregamentos);
+
+        button3.setOnClickListener(new View.OnClickListener()
+
+        {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(UserActivity.this, HistoricoActivity.class));
             }
         });
     }
