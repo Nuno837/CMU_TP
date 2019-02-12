@@ -6,14 +6,16 @@ import android.arch.persistence.room.Insert;
 import android.arch.persistence.room.Query;
 import android.arch.persistence.room.Update;
 
+import java.util.List;
+
 import pt.ipp.estg.cmu_tp.Models.Carregamento;
 
 
 @Dao
 public interface CarregamentoDao {
 
-    @Query("SELECT * FROM Carregamento where nomePosto= :nomePosto and morada= :morada")
-    Carregamento getCarregamento(String nomePosto, String morada);
+    @Query("SELECT * FROM Carregamento")
+    List<Carregamento> getCarregamentos();
 
     @Insert
     void insert(Carregamento carregamento);

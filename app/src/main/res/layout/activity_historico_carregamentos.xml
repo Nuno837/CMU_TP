@@ -11,7 +11,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="91dp">
+        tools:layout_editor_absoluteY="137dp">
 
         <Button
             android:id="@+id/btAddCarregamento"
@@ -23,38 +23,6 @@
             android:layout_marginBottom="476dp"
             android:text="Adicionar Carregamento" />
 
-        <TextView
-            android:id="@+id/tvNomePosto"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true"
-            android:layout_marginLeft="20dp"
-            android:layout_marginRight="20dp"
-            android:layout_marginBottom="262dp"
-            android:textAlignment="center"
-            app:layout_constraintTop_toBottomOf="@+id/btAddCarregamento" />
-
-        <TextView
-            android:id="@+id/tvMorada"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true"
-            android:layout_marginLeft="20dp"
-            android:layout_marginRight="20dp"
-            android:layout_marginBottom="189dp"
-            android:textAlignment="center"
-            app:layout_constraintTop_toBottomOf="@+id/tvNomePosto" />
-
-        <TextView
-            android:id="@+id/tvCusto"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true"
-            android:layout_marginLeft="20dp"
-            android:layout_marginRight="20dp"
-            android:layout_marginBottom="134dp"
-            android:textAlignment="center"
-            app:layout_constraintTop_toBottomOf="@+id/tvMorada" />
 
 
     </RelativeLayout>

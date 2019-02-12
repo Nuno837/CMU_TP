@@ -17,14 +17,12 @@ import pt.ipp.estg.cmu_tp.Models.User;
 public class HistoricoActivity extends AppCompatActivity {
 
     private Button btAddCarregamento;
+    private Button btHistorico;
+
     private CarregamentoDatabase carregamentoDatabase;
-    private Carregamento carregamento;
     private CarregamentoDao carregamentoDao;
     private ProgressDialog progressDialog;
 
-    private TextView tvNomePosto;
-    private TextView tvMorada;
-    private TextView tvCusto;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,26 +45,21 @@ public class HistoricoActivity extends AppCompatActivity {
         carregamentoDao = carregamentoDatabase.getCarregamentoDao();
 
 
-        carregamento = (Carregamento) getIntent().getSerializableExtra("Carregamento");
-
-        tvNomePosto = findViewById(R.id.tvNomePosto);
-        tvMorada = findViewById(R.id.tvMorada);
-        tvCusto = findViewById(R.id.tvCusto);
-
-        if (carregamento != null) {
-            tvNomePosto.setText("Custo "+carregamento.getNomePosto());
-            tvMorada.setText("Custo "+carregamento.getMorada());
-            tvCusto.setText(" Custo "+carregamento.getCusto());
-
-        }
-
-
         btAddCarregamento = findViewById(R.id.btAddCarregamento);
 
         btAddCarregamento.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(HistoricoActivity.this, AddCarregamentoActivity.class));
+            }
+        });
+
+        btHistorico = findViewById(R.id.btHistorico);
+
+        btHistorico.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(HistoricoActivity.this, ListaCarregamentosFragment.class));
             }
         });
 
