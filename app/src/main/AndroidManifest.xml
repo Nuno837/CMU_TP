@@ -84,6 +84,14 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="pt.ipp.estg.cmu_tp.UserActivity"/>
         </activity>
+        <activity
+            android:name=".ListaCarregamentosFragment"
+            android:screenOrientation="portrait"
+            android:parentActivityName=".HistoricoActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="pt.ipp.estg.cmu_tp.HistoricoActivity"/>
+        </activity>
     </application>
 
 </manifest>

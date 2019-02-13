@@ -50,8 +50,10 @@ public class ListaCarregamentosFragment extends AppCompatActivity {
             String morada = cag.getMorada();
             String custo = cag.getCusto();
 
-            info = info+"\n\n"+"Nome Posto: "+nomePosto+"\n Morada: "+morada+"\n Custo: "+custo;
+            info = info+"\n\n"+"Nome Posto: "+nomePosto+"\nMorada: "+morada+"\nCusto: "+custo;
         }
+
+        TxtInfo = findViewById(R.id.txtListaCarregamentos);
 
         TxtInfo.setText(info);
     }
